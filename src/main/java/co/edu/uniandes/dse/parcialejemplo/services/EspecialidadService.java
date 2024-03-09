@@ -29,7 +29,7 @@ public class EspecialidadService {
         }
 
         if (especialidadEntity.getDescripcion() == null || especialidadEntity.getDescripcion().equals("")
-                || especialidadEntity.getDescripcion().length() >= 10) {
+                || especialidadEntity.getDescripcion().length() < 10) {
             throw new IllegalOperationException("Name is not valid");
         }
         List<EspecialidadEntity> nombreAlredyExist = especialidadRepository

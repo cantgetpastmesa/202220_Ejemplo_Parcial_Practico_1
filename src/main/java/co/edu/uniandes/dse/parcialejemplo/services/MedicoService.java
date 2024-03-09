@@ -30,13 +30,13 @@ public class MedicoService {
         if (medicoEntity.getApellido() == null || medicoEntity.getApellido().equals("")) {
             throw new IllegalOperationException("Apellido is not valid");
         }
-        List<MedicoEntity> nombreCompletoAlredyExist = medicoRepository.findByNombreCompleto(medicoEntity.getNombre(),
-                medicoEntity.getApellido());
-        if (!nombreCompletoAlredyExist.isEmpty()) {
-            throw new IllegalOperationException("There already exists a doctor with that full name");
+        List<MedicoEntity> nombreAlredyExist = medicoRepository.findByRegistroMedico(medicoEntity.getRegistroMedico());
+        if (!nombreAlredyExist.isEmpty()) {
+            throw new IllegalOperationException("There already exists a doctor with medical registry number");
         }
 
-        if (medicoEntity.getRegistroMedico() == null || medicoEntity.getRegistroMedico().equals("") || medicoEntity.getRegistroMedico().startsWith("RM")) {
+        if (medicoEntity.getRegistroMedico() == null || medicoEntity.getRegistroMedico().equals("")
+                || !medicoEntity.getRegistroMedico().startsWith("RM")) {
             throw new IllegalOperationException("Registro medico is not valid");
         }
         log.info("The doctor was succesfully created");

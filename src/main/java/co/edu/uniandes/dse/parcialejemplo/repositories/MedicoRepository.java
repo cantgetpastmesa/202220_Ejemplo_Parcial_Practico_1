@@ -13,7 +13,6 @@ public interface MedicoRepository extends JpaRepository<MedicoEntity,Long>{
 
     List<MedicoEntity> findByNombre(String nombre);
     List<MedicoEntity> findByApellido(String apellido);
-    List<MedicoEntity> findByNombreCompleto(String nombre,String apellido);
     List<MedicoEntity> findByRegistroMedico(String registroMedico);
     Optional<MedicoEntity> findById(Long id);
 }
