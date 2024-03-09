@@ -1,5 +1,5 @@
 package co.edu.uniandes.dse.parcialejemplo.services;
 
-public class CascaraService {
-
+public class EspecialidadServiceTest {
+    
 }
